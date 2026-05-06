@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#0c1018">
+  <!-- Bed icon: simple silhouette matching iBRO icon style -->
+  <path d="M6 22 L6 46 L10 46 L10 40 L54 40 L54 46 L58 46 L58 28 C58 22 53 17 47 17 L18 17 C13 17 10 20 10 24 L10 32 L6 32 Z M14 24 C14 22 15 21 17 21 L46 21 C50 21 54 24 54 28 L54 36 L14 36 L14 24 Z"/>
+  <!-- Pillow accent -->
+  <rect x="16" y="25" width="14" height="8" rx="2" fill="#0c1018" opacity="0.6"/>
+</svg>
