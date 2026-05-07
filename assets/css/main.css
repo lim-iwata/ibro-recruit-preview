@@ -1943,8 +1943,7 @@ body { padding-top: 0; }
   object-fit: cover;
   background: transparent;
 }
-/* Fallback placeholder shown when no video file is present. Sits behind the
-   video so when the file loads it covers the placeholder. */
+/* Gray placeholder shown until Vimeo embed is ready. */
 .video-frame__placeholder {
   position: absolute;
   inset: 0;
@@ -1952,34 +1951,36 @@ body { padding-top: 0; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background:
-    repeating-linear-gradient(45deg, #2c2326 0, #2c2326 12px, #221a1d 12px, #221a1d 24px);
-  color: rgba(255,255,255,0.85);
+  background: #d8d6d3;
+  color: var(--ink-2);
   text-align: center;
   padding: clamp(20px, 4vw, 40px);
   gap: 10px;
   z-index: 0;
 }
 .video-frame__placeholder::before {
-  content: "▶  VIDEO PLACEHOLDER";
+  content: "▶  VIDEO";
   display: block;
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(11px, 1.2vw, 13px);
   letter-spacing: 0.4em;
-  color: var(--sky);
+  color: var(--sky-d);
   margin-bottom: 6px;
 }
-.video-frame__placeholder strong {
-  font-weight: 700;
-  font-size: clamp(15px, 2vw, 22px);
-  color: #fff;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-}
 .video-frame__placeholder span {
-  font-size: clamp(12px, 1.3vw, 15px);
-  color: rgba(255,255,255,0.7);
-  line-height: 1.8;
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.video-frame__placeholder span small {
+  display: block;
+  margin-top: 6px;
+  font-size: clamp(11px, 1.1vw, 13px);
+  color: var(--ink-2);
+  font-weight: 400;
+  letter-spacing: 0.06em;
 }
 .video-frame__player .video-frame__media { z-index: 1; }
 .video-frame__caption { display: none; }
