@@ -2042,6 +2042,11 @@ body { padding-top: 0; }
   letter-spacing: 0.4em;
   color: var(--sky-d);
 }
+/* Hide IMAGE label & note when an actual image is loaded via inline style */
+.academy-feature__image[style*="background-image"]::before,
+.academy-feature__image[style*="background-image"] .academy-feature__image-note {
+  display: none;
+}
 .academy-feature__image-note {
   font-size: 10.5px;
   line-height: 1.5;
