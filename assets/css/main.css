@@ -1648,6 +1648,12 @@ body { padding-top: 0; }
 @media (min-width: 900px) {
   .photo-block--tall { height: clamp(480px, 70vh, 760px); }
 }
+/* Mobile: shift subject up by anchoring background to upper-third */
+@media (max-width: 599px) {
+  .photo-block--tall .photo-block__bg {
+    background-position: center 25% !important;
+  }
+}
 .photo-block__bg {
   position: absolute; inset: 0;
   background-size: cover;
