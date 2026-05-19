@@ -328,14 +328,14 @@ body { padding-top: 0; }
 .hero__bg::after {
   content: "";
   position: absolute; inset: 0;
-  /* layered gradient: top dim for header readability, bottom heavily darker for sub readability */
+  /* layered gradient: keep sky vivid up top, darken only the bottom band where subtitle sits */
   background:
     linear-gradient(180deg,
-      rgba(0,0,0,0.55) 0%,
-      rgba(0,0,0,0.18) 18%,
-      rgba(0,0,0,0.22) 38%,
-      rgba(0,0,0,0.55) 65%,
-      rgba(0,0,0,0.85) 100%);
+      rgba(0,0,0,0.28) 0%,
+      rgba(0,0,0,0.04) 12%,
+      rgba(0,0,0,0.04) 42%,
+      rgba(0,0,0,0.38) 68%,
+      rgba(0,0,0,0.78) 100%);
 }
 @keyframes heroZoom {
   from { transform: scale(1.06); }

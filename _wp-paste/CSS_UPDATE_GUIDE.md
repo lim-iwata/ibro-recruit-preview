@@ -4,9 +4,13 @@
 作成：2026-05-19　LIM 岩田／MAIA  
 対象：`recruit.ibro.jp` WP本番テーマ `LIM_responsive001` の CSS 更新
 
+**今回の変更は2か所**：
+- ① `.photo-block` の高さ拡張（1行）
+- ② `.hero__bg::after` のグラデーション調整（5行）
+
 ---
 
-## 1. 変更内容（1行のみ）
+## 変更① ／ photo-block の高さ拡張
 
 **対象ファイル**：`wp-content/themes/LIM_responsive001/assets/css/main.css`  
 **行番号**：**1642 行目**
@@ -35,9 +39,7 @@
 
 実質的に変わるのは **1行（`height:`）のみ** です。
 
----
-
-## 2. なぜ変えるか
+### なぜ変えるか
 
 岩田さん指摘（2026-05-19）：「DAILY MOMENTS / 千葉の暮らし」photo-block で、手前の人物の上半身が画面外に切れて何の画像か分からない。
 
@@ -52,9 +54,7 @@
 | PC（1280px幅） | 約 440px | **約 640px** | +約45% |
 | PC大画面（1920px幅以上） | 440px（上限） | **680px**（上限） | +240px |
 
----
-
-## 3. 影響範囲
+### 影響範囲
 
 全6ページの全 `.photo-block` 要素：
 
@@ -71,45 +71,101 @@
 
 ---
 
-## 4. 反映手順
+## 変更② ／ ファーストビューのグラデーション調整
+
+**対象ファイル**：`wp-content/themes/LIM_responsive001/assets/css/main.css`  
+**行番号**：**328〜339 行目**（`.hero__bg::after` ブロック）
+
+```css
+/* Before（現状） */
+.hero__bg::after {
+  content: "";
+  position: absolute; inset: 0;
+  /* layered gradient: top dim for header readability, bottom heavily darker for sub readability */
+  background:
+    linear-gradient(180deg,
+      rgba(0,0,0,0.55) 0%,
+      rgba(0,0,0,0.18) 18%,
+      rgba(0,0,0,0.22) 38%,
+      rgba(0,0,0,0.55) 65%,
+      rgba(0,0,0,0.85) 100%);
+}
+
+/* After（新しい数値） */
+.hero__bg::after {
+  content: "";
+  position: absolute; inset: 0;
+  /* layered gradient: keep sky vivid up top, darken only the bottom band where subtitle sits */
+  background:
+    linear-gradient(180deg,
+      rgba(0,0,0,0.28) 0%,
+      rgba(0,0,0,0.04) 12%,
+      rgba(0,0,0,0.04) 42%,
+      rgba(0,0,0,0.38) 68%,
+      rgba(0,0,0,0.78) 100%);
+}
+```
+
+実質的に変わるのは **背景グラデーションの5つの色停止値のみ** です。
+
+### なぜ変えるか
+
+岩田さん指摘（2026-05-19）：TOP の FV（あなたが、長く続けられる場所を。）で、青空が黒のオーバーレイで濁って見える。
+
+| 位置 | 旧透過率 | 新透過率 | 効果 |
+|---|---|---|---|
+| 最上部 0% | 0.55（暗） | **0.28**（軽め） | ロゴと JOBS ボタンは依然読める |
+| 上部 12〜42%（空） | 0.18〜0.22 | **0.04**（ほぼ透明） | **青空がそのまま見える** |
+| 中盤 68% | 0.55 | 0.38 | 緩やかに暗くなる |
+| 最下部 100% | 0.85 | 0.78 | サブコピー（美容学生・高校生…）の可読性は維持 |
+
+### 影響範囲
+
+TOP ページ FV のみ（`.hero__bg::after`）。サブページの FV（`.ph-hero__bg::after` 1172行目）は **別定義のため影響なし**。
+
+---
+
+## 反映手順
 
 ### 方法A：WP管理画面 → 外観 → テーマファイルエディター
 
 1. WP管理画面 → 外観 → テーマファイルエディター
 2. テーマ：`LIM_responsive001`
 3. 右側ファイル一覧から `assets/css/main.css`
-4. **1642行目** を検索（`height: clamp(220px, 38vh, 440px);`）
-5. `height: clamp(320px, 55vh, 680px);` に置換
+4. **変更① 1642行目** を検索（`height: clamp(220px, 38vh, 440px);`）→ 置換
+5. **変更② 328〜339行目** の `.hero__bg::after` ブロックを丸ごと置換（上記 After をコピペ）
 6. 「ファイルを更新」
 
 ### 方法B：FTP / SFTP 経由
 
-`wp-content/themes/LIM_responsive001/assets/css/main.css` を取得して、ローカルで 1642 行目を編集して再アップロード。
+`wp-content/themes/LIM_responsive001/assets/css/main.css` を取得して、ローカルで2か所編集して再アップロード。
 
 ---
 
-## 5. 反映後の動作確認
+## 反映後の動作確認
 
 | ページ | 確認カット | 確認内容 |
 |---|---|---|
+| TOP | FV「あなたが、長く続けられる場所を。」 | **青空がはっきり水色に見える／タイトル白文字は依然読める／サブコピーも読める** |
 | TOP | IMAGE 01「店舗外観カット」 | 上下の余白が拡張、メインの被写体が中央に |
 | TOP | IMAGE 02「アカデミー風景」 | 同上 |
 | 美容学生 | CHAPTER 02 PHOTO 01「もうひとつの道」 | 道の遠近感が見える |
 | 美容学生 | CHAPTER 11 PHOTO 03「DAILY MOMENTS / 千葉の暮らし」 | **修正前は人物の上半身が切れていた → 修正後は顔が見える** |
 
----
-
-## 6. ロールバック手順
-
-問題があれば、1642行目を元の値に戻すだけ：
-
-```css
-height: clamp(220px, 38vh, 440px);   /* 元に戻す */
-```
+スマホ・PC 両方で確認をお願いします（特に TOP FV の青空とサブコピー可読性）。
 
 ---
 
-## 7. 同時に行う他の作業
+## ロールバック手順
+
+問題があれば、上記 Before の数値に戻すだけ。
+
+- 変更① ：`height: clamp(220px, 38vh, 440px);`
+- 変更② ：5つの rgba 値を `0.55 / 0.18 / 0.22 / 0.55 / 0.85` に戻す
+
+---
+
+## 同時に行う他の作業
 
 `HANDOFF_WP.md` 参照：
 
