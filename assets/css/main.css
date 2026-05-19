@@ -1639,7 +1639,7 @@ body { padding-top: 0; }
 .photo-block {
   position: relative;
   width: 100%;
-  height: clamp(220px, 38vh, 440px);
+  height: clamp(320px, 55vh, 680px);
   overflow: hidden;
   margin: 0;
 }

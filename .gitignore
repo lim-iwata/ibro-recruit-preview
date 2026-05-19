@@ -5,3 +5,15 @@ desktop.ini
 .vscode/
 .idea/
 node_modules/
+
+# 不採用AI生成画像（作業ログ用、push不要）
+assets/img/generated/_rejected/
+assets/img/generated/*.jpg
+assets/img/generated/*.png
+
+# 作業スクリプト（内田さんへの納品物ではない）
+**/_gen17.py
+**/_resize_compress.py
+**/_copy_and_map.py
+**/_scrape_pixta.py
+_swap_to_pixta.py
