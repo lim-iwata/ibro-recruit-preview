@@ -354,11 +354,9 @@ body { padding-top: 0; }
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.015em;
-  /* strengthened shadows to maintain readability over the lighter sky-toned overlay */
   text-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.65),
-    0 4px 24px rgba(0, 0, 0, 0.70),
-    0 0 14px rgba(0, 0, 0, 0.45);
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    0 4px 18px rgba(0, 0, 0, 0.40);
 }
 .hero__title .line { display: block; opacity: 0; transform: translateY(28px); animation: heroLine .85s cubic-bezier(.2,.7,.2,1) forwards; }
 .hero__title .line:nth-child(1) { animation-delay: 0.45s; }
