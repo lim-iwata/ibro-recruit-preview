@@ -328,14 +328,14 @@ body { padding-top: 0; }
 .hero__bg::after {
   content: "";
   position: absolute; inset: 0;
-  /* layered gradient: keep sky vivid up top, darken only the bottom band where subtitle sits */
+  /* sky-toned gradient (no pure black): light sky tint up top, deepening to navy-sky at bottom for text contrast */
   background:
     linear-gradient(180deg,
-      rgba(0,0,0,0.28) 0%,
-      rgba(0,0,0,0.04) 12%,
-      rgba(0,0,0,0.04) 42%,
-      rgba(0,0,0,0.38) 68%,
-      rgba(0,0,0,0.78) 100%);
+      rgba(40, 85, 130, 0.30) 0%,
+      rgba(150, 195, 220, 0.05) 14%,
+      rgba(150, 195, 220, 0.05) 42%,
+      rgba(20, 55, 95, 0.55) 70%,
+      rgba(12, 35, 70, 0.85) 100%);
 }
 @keyframes heroZoom {
   from { transform: scale(1.06); }
@@ -354,9 +354,11 @@ body { padding-top: 0; }
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.015em;
+  /* strengthened shadows to maintain readability over the lighter sky-toned overlay */
   text-shadow:
-    0 2px 4px rgba(0,0,0,0.45),
-    0 4px 24px rgba(0,0,0,0.55);
+    0 2px 6px rgba(0, 0, 0, 0.65),
+    0 4px 24px rgba(0, 0, 0, 0.70),
+    0 0 14px rgba(0, 0, 0, 0.45);
 }
 .hero__title .line { display: block; opacity: 0; transform: translateY(28px); animation: heroLine .85s cubic-bezier(.2,.7,.2,1) forwards; }
 .hero__title .line:nth-child(1) { animation-delay: 0.45s; }

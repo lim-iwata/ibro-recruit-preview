@@ -4,9 +4,10 @@
 作成：2026-05-19　LIM 岩田／MAIA  
 対象：`recruit.ibro.jp` WP本番テーマ `LIM_responsive001` の CSS 更新
 
-**今回の変更は2か所**：
+**今回の変更は3か所**：
 - ① `.photo-block` の高さ拡張（1行）
-- ② `.hero__bg::after` のグラデーション調整（5行）
+- ② -A `.hero__bg::after` のグラデーションを空のトーンに変更（5行）
+- ② -B `.hero__title` の text-shadow 強化（3行）
 
 ---
 
@@ -71,13 +72,15 @@
 
 ---
 
-## 変更② ／ ファーストビューのグラデーション調整
+## 変更② ／ ファーストビューのオーバーレイを「空の色」に変更
 
 **対象ファイル**：`wp-content/themes/LIM_responsive001/assets/css/main.css`  
-**行番号**：**328〜339 行目**（`.hero__bg::after` ブロック）
+**行番号**：**328〜339 行目**（`.hero__bg::after` ブロック）＋ **352〜360 行目**（`.hero__title` のテキストシャドウ）
+
+### ② -A ／ オーバーレイのグラデーション（328〜339行目）
 
 ```css
-/* Before（現状） */
+/* Before（現状・黒の半透明） */
 .hero__bg::after {
   content: "";
   position: absolute; inset: 0;
@@ -91,37 +94,71 @@
       rgba(0,0,0,0.85) 100%);
 }
 
-/* After（新しい数値） */
+/* After（空のトーンに寄せた青系の半透明） */
 .hero__bg::after {
   content: "";
   position: absolute; inset: 0;
-  /* layered gradient: keep sky vivid up top, darken only the bottom band where subtitle sits */
+  /* sky-toned gradient (no pure black): light sky tint up top, deepening to navy-sky at bottom for text contrast */
   background:
     linear-gradient(180deg,
-      rgba(0,0,0,0.28) 0%,
-      rgba(0,0,0,0.04) 12%,
-      rgba(0,0,0,0.04) 42%,
-      rgba(0,0,0,0.38) 68%,
-      rgba(0,0,0,0.78) 100%);
+      rgba(40, 85, 130, 0.30) 0%,
+      rgba(150, 195, 220, 0.05) 14%,
+      rgba(150, 195, 220, 0.05) 42%,
+      rgba(20, 55, 95, 0.55) 70%,
+      rgba(12, 35, 70, 0.85) 100%);
 }
 ```
 
-実質的に変わるのは **背景グラデーションの5つの色停止値のみ** です。
+### ② -B ／ タイトルの可読性強化（352〜360行目）
+
+オーバーレイが薄くなる分、白文字タイトル「あなたが、長く続けられる場所を。」のシャドウを強化します。
+
+```css
+/* Before */
+.hero__title {
+  font-size: clamp(40px, 9vw, 96px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.45),
+    0 4px 24px rgba(0,0,0,0.55);
+}
+
+/* After */
+.hero__title {
+  font-size: clamp(40px, 9vw, 96px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  /* strengthened shadows to maintain readability over the lighter sky-toned overlay */
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.65),
+    0 4px 24px rgba(0, 0, 0, 0.70),
+    0 0 14px rgba(0, 0, 0, 0.45);
+}
+```
+
+サブコピー（`.hero__sub`）のシャドウは既に十分強いため変更不要です。
 
 ### なぜ変えるか
 
-岩田さん指摘（2026-05-19）：TOP の FV（あなたが、長く続けられる場所を。）で、青空が黒のオーバーレイで濁って見える。
+岩田さん指摘（2026-05-19）：TOP の FV（あなたが、長く続けられる場所を。）で、
 
-| 位置 | 旧透過率 | 新透過率 | 効果 |
+1. 黒のオーバーレイが空を「汚し」、青空の魅力が消えている
+2. 黒ではなく **「空の色に近い色」** で重ねたい
+3. 同時に見出しの可読性は確保したい
+
+| 位置 | 旧（黒系） | 新（空系） | 効果 |
 |---|---|---|---|
-| 最上部 0% | 0.55（暗） | **0.28**（軽め） | ロゴと JOBS ボタンは依然読める |
-| 上部 12〜42%（空） | 0.18〜0.22 | **0.04**（ほぼ透明） | **青空がそのまま見える** |
-| 中盤 68% | 0.55 | 0.38 | 緩やかに暗くなる |
-| 最下部 100% | 0.85 | 0.78 | サブコピー（美容学生・高校生…）の可読性は維持 |
+| 最上部 0% | rgba(0,0,0,0.55) | **rgba(40, 85, 130, 0.30)** ディープスカイブルー | ヘッダーロゴ・JOBS ボタンの読みやすさを維持 |
+| 上部 14〜42%（空） | rgba(0,0,0,0.18〜0.22) | **rgba(150, 195, 220, 0.05)** 薄いスカイブルー | **青空がそのまま、わずかに空色トーンで強調** |
+| 中盤 70% | rgba(0,0,0,0.55) | **rgba(20, 55, 95, 0.55)** 深いスカイブルー | 黒ではなく「夕空」のような深みで暗化 |
+| 最下部 100% | rgba(0,0,0,0.85) | **rgba(12, 35, 70, 0.85)** ネイビースカイ | サブコピー可読性キープ + 黒の濁りなし |
 
 ### 影響範囲
 
-TOP ページ FV のみ（`.hero__bg::after`）。サブページの FV（`.ph-hero__bg::after` 1172行目）は **別定義のため影響なし**。
+TOP ページ FV のみ（`.hero__bg::after` と `.hero__title`）。サブページの FV（`.ph-hero__bg::after` 1172行目）は **別定義のため影響なし**。
 
 ---
 
@@ -133,12 +170,13 @@ TOP ページ FV のみ（`.hero__bg::after`）。サブページの FV（`.ph-h
 2. テーマ：`LIM_responsive001`
 3. 右側ファイル一覧から `assets/css/main.css`
 4. **変更① 1642行目** を検索（`height: clamp(220px, 38vh, 440px);`）→ 置換
-5. **変更② 328〜339行目** の `.hero__bg::after` ブロックを丸ごと置換（上記 After をコピペ）
-6. 「ファイルを更新」
+5. **変更② -A 328〜339行目** の `.hero__bg::after` ブロックを丸ごと置換（上記 After をコピペ）
+6. **変更② -B 352〜360行目** の `.hero__title` の `text-shadow` 部分を置換
+7. 「ファイルを更新」
 
 ### 方法B：FTP / SFTP 経由
 
-`wp-content/themes/LIM_responsive001/assets/css/main.css` を取得して、ローカルで2か所編集して再アップロード。
+`wp-content/themes/LIM_responsive001/assets/css/main.css` を取得して、ローカルで3か所編集して再アップロード。
 
 ---
 
@@ -161,7 +199,8 @@ TOP ページ FV のみ（`.hero__bg::after`）。サブページの FV（`.ph-h
 問題があれば、上記 Before の数値に戻すだけ。
 
 - 変更① ：`height: clamp(220px, 38vh, 440px);`
-- 変更② ：5つの rgba 値を `0.55 / 0.18 / 0.22 / 0.55 / 0.85` に戻す
+- 変更② -A：5つの rgba を `rgba(0,0,0,0.55) / rgba(0,0,0,0.18) / rgba(0,0,0,0.22) / rgba(0,0,0,0.55) / rgba(0,0,0,0.85)` に戻す
+- 変更② -B：`text-shadow: 0 2px 4px rgba(0,0,0,0.45), 0 4px 24px rgba(0,0,0,0.55);` に戻す
 
 ---
 
