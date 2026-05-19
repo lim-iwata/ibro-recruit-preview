@@ -17,19 +17,21 @@
 </head>
 <body>
 
-<div class="scroll-progress"></div>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="./" class="site-header__logo" aria-label="iBRO GROUP RECRUIT">
+    <img src="assets/img/logo01_all.svg" alt="iBRO GROUP — Hair Art dix / Hair studio CLiC / ring Hair Haus / 白髪染め専科 8">
+  </a>
+      <a href="#cards" class="site-header__cta">JOBS</a>
+  </header>
 
 <!-- ============ HERO ============ -->
 <section class="hero" aria-label="HERO">
   <div class="hero__bg ken-burns" style="background-image:url('assets/img/pamphlet-345.jpg');"></div>
-  <header class="site-header">
-    <a href="./" class="site-header__logo" aria-label="iBRO GROUP RECRUIT">
-      <img src="assets/img/logo01_all.svg" alt="iBRO GROUP — Hair Art dix / Hair studio CLiC / ring Hair Haus / 白髪染め専科 8">
-    </a>
-    <a href="#cards" class="site-header__cta">JOBS</a>
-  </header>
-  <span class="vertical-rail">IBRO RECRUIT 2027 · 親 子 孫 まで</span>
-  <span class="hero__label">RECRUIT 2027</span>
+  <span class="vertical-rail">IBRO RECRUIT · 親 子 孫 まで</span>
+  <span class="hero__label">RECRUIT</span>
   <div class="hero__content">
     <h1 class="hero__title">
       <span class="line">あなたが、</span>
@@ -66,13 +68,13 @@
 </div>
 
 <!-- ============ IMAGE 01 ============ -->
-<div class="image-placeholder image-placeholder--wide fade-up">
-  <div class="image-placeholder__title">店舗外観カット — 五井グランド店 or 辰巳店</div>
-  <div class="image-placeholder__desc">営業時間中、お客様が出入りする自然な瞬間。横位置・横長フルブリード。<br>4/30 姉ヶ崎店撮影分から代替候補あり。</div>
+<div class="photo-block">
+  <div class="photo-block__bg parallax-bg" data-parallax="0.12" style="background-image:url('assets/img/bg_07.jpg');" role="img" aria-label="iBRO 店舗外観"></div>
+  <div class="photo-block__caption">— FIND YOUR ENTRANCE ／ あなたに合う場所へ</div>
 </div>
 
 <!-- ============ CH01 PROLOGUE ============ -->
-<section class="story-section section--cream" data-deco="CHAPTER 01 — PROLOGUE" data-deco-italic="Five paths.">
+<section class="story-section <!--section--cream-->" data-deco="CHAPTER 01 — PROLOGUE" data-deco-italic="Five paths.">
   <div class="story-inner">
     <span class="chapter"><span class="chapter__num">CHAPTER 01</span> PROLOGUE</span>
     <h2 class="story-title reveal-words">あなたの入口を、選んでください。</h2>
@@ -87,8 +89,8 @@
   <div class="next-arrow">SCROLL</div>
 </section>
 
-<!-- ============ CH02 NUMBERS — quiet ============ -->
-<section class="story-section" data-deco="EST. 2002 — IBRO" data-deco-italic="—">
+<!-- ============ CH02 NUMBERS ============ -->
+<!--section class="story-section" data-deco="EST. 2002 — IBRO" data-deco-italic="—">
   <div class="story-inner">
     <span class="chapter"><span class="chapter__num">CHAPTER 02</span> NUMBERS</span>
   </div>
@@ -107,12 +109,12 @@
     </div>
   </div>
   <div class="next-arrow">SCROLL</div>
-</section>
+</section-->
 
-<!-- ============ IMAGE 02 (between numbers and ink marquee) ============ -->
-<div class="image-placeholder image-placeholder--wide fade-up">
-  <div class="image-placeholder__title">アカデミー風景 — 営業時間内のカット練習</div>
-  <div class="image-placeholder__desc">ウィッグを使ったベーシックトレーニング・先輩が後ろで見守る瞬間。<br>横位置・人物2-3名・自然光。</div>
+<!-- ============ IMAGE 02 ============ -->
+<div class="photo-block">
+  <div class="photo-block__bg parallax-bg" data-parallax="0.14" style="background-image:url('assets/img/bg_08.jpg');" role="img" aria-label="iBRO アカデミー カット練習"></div>
+  <div class="photo-block__caption">— A PLACE TO LAST ／ ここは、長く続けられる場所</div>
 </div>
 
 <!-- ============ MARQUEE 02 (reverse, ink) ============ -->
@@ -130,9 +132,9 @@
 </div>
 
 <!-- ============ CH03 5 JOBS ============ -->
-<section class="story-section section--cream" data-deco="CHAPTER 03 — 5 JOBS" data-deco-italic="Choose your entrance.">
+<section class="story-section section--cream" data-deco="CHAPTER 02 — 5 JOBS" data-deco-italic="Choose your entrance.">
   <div class="story-inner">
-    <span class="chapter"><span class="chapter__num">CHAPTER 03</span> 5 JOBS</span>
+    <span class="chapter"><span class="chapter__num">CHAPTER 02</span> 5 JOBS</span>
     <h2 class="story-title reveal-words">あなたに合う入口は、どれですか。</h2>
     <p class="story-sub">
       迷ったら、いちばん気になるカードから開いてみてください。<br>
@@ -144,7 +146,7 @@
 <!-- ============ 5 JOB CARDS ============ -->
 <div id="cards" class="cards">
   <a href="student/" class="card fade-up">
-    <div class="card__bg" style="background-image:url('assets/img/pamphlet-345.jpg');"></div>
+    <div class="card__bg" style="background-image:url('assets/img/card_student.jpg');"></div>
     <div class="card__inner">
       <span class="card__label">01 ／ BEAUTY STUDENTS</span>
       <div>
@@ -156,7 +158,7 @@
   </a>
 
   <a href="highschool/" class="card fade-up fade-up--delay-1">
-    <div class="card__bg" style="background-image:url('assets/img/staff-08.jpg');"></div>
+    <div class="card__bg" style="background-image:url('assets/img/hero_mobara.jpg');"></div>
     <div class="card__inner">
       <span class="card__label">02 ／ HIGH SCHOOL</span>
       <div>
@@ -168,7 +170,7 @@
   </a>
 
   <a href="assistant/" class="card fade-up fade-up--delay-2">
-    <div class="card__bg" style="background-image:url('assets/img/staff-30.jpg');"></div>
+    <div class="card__bg" style="background-image:url('assets/img/hero_toke.jpg');"></div>
     <div class="card__inner">
       <span class="card__label">03 ／ ASSISTANTS</span>
       <div>
@@ -192,7 +194,7 @@
   </a>
 
   <a href="eight/" class="card fade-up">
-    <div class="card__bg" style="background-image:url('assets/img/staff-60.jpg');"></div>
+    <div class="card__bg" style="background-image:url('assets/img/hero_hamano.jpg');"></div>
     <div class="card__inner">
       <span class="card__label">05 ／ COLOR SPECIALIST</span>
       <div>
@@ -204,48 +206,47 @@
   </a>
 </div>
 
-<!-- ============ IMAGE 02 ============ -->
-<div class="image-placeholder image-placeholder--wide fade-up">
-  <div class="image-placeholder__title">スタッフ集合カット — 全店スタッフ70名 or 主要メンバー</div>
-  <div class="image-placeholder__desc">2025年スタッフ写真フォルダから採用担当・教育担当・トップスタイリストを中心に。<br>横位置・縦長フルブリード使用想定。</div>
+<!-- ============ IMAGE 03 ============ -->
+<div class="photo-block">
+  <div class="photo-block__bg parallax-bg" data-parallax="0.12" style="background-image:url('assets/img/bg_09.jpg');" role="img" aria-label="iBRO 全店スタッフ集合"></div>
+  <div class="photo-block__caption">— FOR GENERATIONS ／ 親、子、孫まで</div>
 </div>
 
 <!-- ============ MARQUEE 03 ============ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
-    <span class="marquee__item">JOIN US — 2027</span>
+    <span class="marquee__item">JOIN US</span>
     <span class="marquee__item">親、子、孫まで、働きたい会社。</span>
     <span class="marquee__item">LINEで気軽に。</span>
-    <span class="marquee__item">JOIN US — 2027</span>
+    <span class="marquee__item">JOIN US</span>
     <span class="marquee__item">親、子、孫まで、働きたい会社。</span>
     <span class="marquee__item">LINEで気軽に。</span>
-    <span class="marquee__item">JOIN US — 2027</span>
+    <span class="marquee__item">JOIN US</span>
     <span class="marquee__item">親、子、孫まで、働きたい会社。</span>
     <span class="marquee__item">LINEで気軽に。</span>
   </div>
 </div>
 
 <!-- ============ CH04 INVITATION ============ -->
-<section class="story-section final-cta section--cream" data-deco="CHAPTER 04 — INVITATION" data-deco-italic="Let's talk.">
+<section class="story-section final-cta section--cream" data-deco="CHAPTER 03 — INVITATION" data-deco-italic="Let's talk.">
   <div class="story-inner" style="text-align:center;">
-    <span class="chapter fade-up" style="justify-content:center;"><span class="chapter__num">CHAPTER 04</span> INVITATION</span>
-    <h2 class="final-cta__title fade-up reveal-words">迷っているなら、LINE。</h2>
+    <span class="chapter fade-up" style="justify-content:center;"><span class="chapter__num">CHAPTER 03</span> INVITATION</span>
+    <h2 class="final-cta__title fade-up reveal-words">迷っているなら、<br class="br_sp">LINE。</h2>
     <p class="final-cta__sub fade-up fade-up--delay-1">
       職種が決まっていなくても、大丈夫です。<br>
-      まず、あなたの話を聞かせてください。<br>
-      返信は、できるだけ早く、人間の言葉で。
-    </p>
+      まず、あなたの話を聞かせてください。</p>
     <div class="cta-stack fade-up fade-up--delay-2">
       <a class="btn btn--line btn--lg btn--block magnet" data-magnet="0.15" href="https://lin.ee/tEnbUk7" target="_blank" rel="noopener">LINEで相談する</a>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="footer__head">
-    <div class="footer__brand"><img src="assets/img/logo01_all.svg" alt="iBRO GROUP — Hair Art dix / Hair studio CLiC / ring Hair Haus / 白髪染め専科 8"></div>
-    <div class="footer__copy">有限会社IBRO ／ 千葉県市原市五井中央東2-3-9 東城ビル103<br>創業 平成16年2月10日 ／ 美容室経営 12店舗</div>
+    <div class="footer__brand">
+      <img src="assets/img/logo01_all.svg" alt="iBRO GROUP — Hair Art dix / Hair studio CLiC / ring Hair Haus / 白髪染め専科 8">
+    </div>
+    <div class="footer__copy">有限会社IBRO ／ <br class="br_sp">千葉県市原市五井中央東2-3-9 東城ビル103<br>創業 2002年2月22日 ／ 美容室経営 12店舗</div>
   </div>
   <div class="footer__cols">
     <div class="footer__col">
@@ -284,8 +285,69 @@
   </div>
 </footer>
 
-<a class="floating-cta btn btn--line btn--block" href="https://lin.ee/tEnbUk7" target="_blank" rel="noopener">LINEで相談する</a>
+<a class="floating-cta btn btn--line btn--block" href="https://lin.ee/tEnbUk7" target="_blank" rel="noopener">
+  LINEで相談する</a>
 
-<script src="assets/js/main.js" defer></script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/LIM_responsive001/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="https://recruit.ibro.jp/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://recruit.ibro.jp/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://recruit.ibro.jp/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.5" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-translations">
+/* <![CDATA[ */
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "contact-form-7", {"translation-revision-date":"2025-11-30 08:12:23+0000","generator":"GlotPress\/4.0.3","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=1; plural=0;","lang":"ja_JP"},"This contact form is placed in the wrong place.":["\u3053\u306e\u30b3\u30f3\u30bf\u30af\u30c8\u30d5\u30a9\u30fc\u30e0\u306f\u9593\u9055\u3063\u305f\u4f4d\u7f6e\u306b\u7f6e\u304b\u308c\u3066\u3044\u307e\u3059\u3002"],"Error:":["\u30a8\u30e9\u30fc:"]}},"comment":{"reference":"includes\/js\/index.js"}} );
+//# sourceURL=contact-form-7-js-translations
+/* ]]> */
+</script>
+<script type="text/javascript" id="contact-form-7-js-before">
+/* <![CDATA[ */
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/recruit.ibro.jp\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    }
+};
+//# sourceURL=contact-form-7-js-before
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://recruit.ibro.jp/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.5" id="contact-form-7-js"></script>
+<script type="text/javascript" defer src="main.js?ver=1.0.0" id="lim-main-js-js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LdnAN8sAAAAALRtcsO0vwvfgQ481LzgR0aZwsxT&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="text/javascript" src="https://recruit.ibro.jp/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-before">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {
+    "sitekey": "6LdnAN8sAAAAALRtcsO0vwvfgQ481LzgR0aZwsxT",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://recruit.ibro.jp/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.5" id="wpcf7-recaptcha-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://recruit.ibro.jp/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://recruit.ibro.jp/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+
 </body>
 </html>
